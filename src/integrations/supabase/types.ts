@@ -14,7 +14,173 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      comments: {
+        Row: {
+          author: string
+          body: string
+          created_at: string
+          id: string
+          post_id: string
+        }
+        Insert: {
+          author?: string
+          body: string
+          created_at?: string
+          id?: string
+          post_id: string
+        }
+        Update: {
+          author?: string
+          body?: string
+          created_at?: string
+          id?: string
+          post_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "comments_post_id_fkey"
+            columns: ["post_id"]
+            isOneToOne: false
+            referencedRelation: "posts"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      donations: {
+        Row: {
+          amount: number
+          created_at: string
+          id: string
+          message: string
+          name: string
+        }
+        Insert: {
+          amount?: number
+          created_at?: string
+          id?: string
+          message?: string
+          name?: string
+        }
+        Update: {
+          amount?: number
+          created_at?: string
+          id?: string
+          message?: string
+          name?: string
+        }
+        Relationships: []
+      }
+      floaters: {
+        Row: {
+          content: string
+          created_at: string
+          id: string
+          kind: string
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          id?: string
+          kind?: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          id?: string
+          kind?: string
+        }
+        Relationships: []
+      }
+      posts: {
+        Row: {
+          animation: string
+          badge: string
+          body: string
+          created_at: string
+          id: string
+          image_url: string | null
+          likes: number
+          title: string
+          views: number
+        }
+        Insert: {
+          animation?: string
+          badge?: string
+          body?: string
+          created_at?: string
+          id?: string
+          image_url?: string | null
+          likes?: number
+          title: string
+          views?: number
+        }
+        Update: {
+          animation?: string
+          badge?: string
+          body?: string
+          created_at?: string
+          id?: string
+          image_url?: string | null
+          likes?: number
+          title?: string
+          views?: number
+        }
+        Relationships: []
+      }
+      reviews: {
+        Row: {
+          avatar: string
+          body: string
+          created_at: string
+          id: string
+          name: string
+          role: string
+        }
+        Insert: {
+          avatar?: string
+          body: string
+          created_at?: string
+          id?: string
+          name: string
+          role?: string
+        }
+        Update: {
+          avatar?: string
+          body?: string
+          created_at?: string
+          id?: string
+          name?: string
+          role?: string
+        }
+        Relationships: []
+      }
+      site_settings: {
+        Row: {
+          card_holder: string
+          card_number: string
+          floater_interval_sec: number
+          id: number
+          total_amount: number
+          updated_at: string
+        }
+        Insert: {
+          card_holder?: string
+          card_number?: string
+          floater_interval_sec?: number
+          id?: number
+          total_amount?: number
+          updated_at?: string
+        }
+        Update: {
+          card_holder?: string
+          card_number?: string
+          floater_interval_sec?: number
+          id?: number
+          total_amount?: number
+          updated_at?: string
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
