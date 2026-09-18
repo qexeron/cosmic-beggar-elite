@@ -1,4 +1,3 @@
-// Deployment trigger: Service role key integrated
 import { createClient } from '@supabase/supabase-js';
 import type { Database } from './types';
 
@@ -16,7 +15,7 @@ function createSupabaseFetch(supabaseKey: string): typeof fetch {
       new Headers(init.headers).forEach((value, key) => headers.set(key, value));
     }
 
-    if (isNewSupabaseApiKey(supabaseKey) && headers.get('Authorization') === `Bearer ${supabaseKey}`) {
+    if (isNewSupabaseApiKey(supabaseKey) && headers.get('Authorization') === ) {
       headers.delete('Authorization');
     }
 
@@ -29,9 +28,12 @@ function createSupabaseAdminClient() {
   const SUPABASE_URL =
     process.env['SUPABASE_URL'] ||
     process.env['VITE_SUPABASE_URL'] ||
-    'https://c--ce8e641e-6428-4728-8311-7707679aa883-prod.lovable.cloud';
+    'https://svvmoqgtygkcgjbbrteh.supabase.co';
   const SUPABASE_KEY =
     process.env['SUPABASE_SERVICE_ROLE_KEY'] ||
+    process.env['SERVICE_ROLE_KEY'] ||
+    process.env['SUPABASE_SERVICE_KEY'] ||
+    process.env['SUPABASE_SECRET_KEY'] ||
     process.env['SUPABASE_PUBLISHABLE_KEY'] ||
     process.env['VITE_SUPABASE_PUBLISHABLE_KEY'] ||
     'sb_publishable_DS2JM0X7t8kq0V6-jrs7ig_vt8J31uk';
