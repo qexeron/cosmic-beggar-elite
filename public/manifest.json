@@ -1,0 +1,21 @@
+{
+  "name": "Tilanchi.uz — VIP Luxury Begging Experience",
+  "short_name": "Tilanchi.uz",
+  "description": "Koinotdagi eng lyuks tilanchilik platformasi",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#0a0a0c",
+  "theme_color": "#0a0a0c",
+  "icons": [
+    {
+      "src": "/android-chrome-192x192.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/android-chrome-512x512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
