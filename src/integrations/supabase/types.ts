@@ -53,6 +53,8 @@ export type Database = {
           id: string
           message: string
           name: string
+          source: string
+          visible: boolean
         }
         Insert: {
           amount?: number
@@ -60,6 +62,8 @@ export type Database = {
           id?: string
           message?: string
           name?: string
+          source?: string
+          visible?: boolean
         }
         Update: {
           amount?: number
@@ -67,6 +71,8 @@ export type Database = {
           id?: string
           message?: string
           name?: string
+          source?: string
+          visible?: boolean
         }
         Relationships: []
       }
@@ -100,6 +106,10 @@ export type Database = {
           id: string
           image_url: string | null
           likes: number
+          media_kind: string
+          media_url: string | null
+          pinned: boolean
+          sticker: string | null
           title: string
           views: number
         }
@@ -111,6 +121,10 @@ export type Database = {
           id?: string
           image_url?: string | null
           likes?: number
+          media_kind?: string
+          media_url?: string | null
+          pinned?: boolean
+          sticker?: string | null
           title: string
           views?: number
         }
@@ -122,6 +136,10 @@ export type Database = {
           id?: string
           image_url?: string | null
           likes?: number
+          media_kind?: string
+          media_url?: string | null
+          pinned?: boolean
+          sticker?: string | null
           title?: string
           views?: number
         }
@@ -158,24 +176,42 @@ export type Database = {
         Row: {
           card_holder: string
           card_number: string
+          donate_note: string
           floater_interval_sec: number
+          hero_lines: Json
           id: number
+          marquee_text: string
+          public_donations: boolean
+          sound_enabled: boolean
+          thanks_lines: Json
           total_amount: number
           updated_at: string
         }
         Insert: {
           card_holder?: string
           card_number?: string
+          donate_note?: string
           floater_interval_sec?: number
+          hero_lines?: Json
           id?: number
+          marquee_text?: string
+          public_donations?: boolean
+          sound_enabled?: boolean
+          thanks_lines?: Json
           total_amount?: number
           updated_at?: string
         }
         Update: {
           card_holder?: string
           card_number?: string
+          donate_note?: string
           floater_interval_sec?: number
+          hero_lines?: Json
           id?: number
+          marquee_text?: string
+          public_donations?: boolean
+          sound_enabled?: boolean
+          thanks_lines?: Json
           total_amount?: number
           updated_at?: string
         }
@@ -186,7 +222,7 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      increment_total_amount: { Args: { delta: number }; Returns: number }
     }
     Enums: {
       [_ in never]: never
