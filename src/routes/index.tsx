@@ -569,7 +569,7 @@ function PostSection({ post, comments }: { post: Post; comments: Comment[] }) {
                   {post.badge}
                 </span>
                 <span className="text-muted-foreground">
-                  {new Date(post.created_at).toLocaleString("uz-UZ")}
+                  {new Date(post.created_at).toISOString().slice(0, 16).replace("T", " ")}
                 </span>
               </div>
               <h3 className="mt-4 font-display text-xl font-black gold-text sm:text-3xl">
