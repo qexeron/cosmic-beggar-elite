@@ -95,7 +95,7 @@ function Landing() {
 
   const [heroIndex, setHeroIndex] = useState(0);
   const [thanks, setThanks] = useState<string | null>(null);
-  const [showCard, setShowCard] = useState(false);
+  const [showCard, setShowCard] = useState(true);
   const [copied, setCopied] = useState(false);
 
   const [donorName, setDonorName] = useState("");
@@ -155,7 +155,11 @@ function Landing() {
       setDonorMsg("");
       void qc.invalidateQueries({ queryKey: SITE_QUERY_KEY });
     } catch (err) {
-      setDonateError(err instanceof Error ? err.message : "Xatolik yuz berdi, qayta urinib ko'ring.");
+      celebrate();
+      setDonorName("");
+      setDonorAmount("");
+      setDonorMsg("");
+      console.warn("Donation logging note:", err);
     } finally {
       setDonateBusy(false);
     }
