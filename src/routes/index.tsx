@@ -180,7 +180,7 @@ function Landing() {
           <div className="flex items-center gap-2">
             <span className="text-2xl">👑</span>
             <span className="font-display text-lg font-black gold-text sm:text-xl">
-              TILANCHILIK.UZ
+              Tilanchi.uz
             </span>
           </div>
           <div className="flex items-center gap-2">
