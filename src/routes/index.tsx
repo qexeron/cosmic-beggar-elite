@@ -95,7 +95,7 @@ function Landing() {
 
   const [heroIndex, setHeroIndex] = useState(0);
   const [thanks, setThanks] = useState<string | null>(null);
-  const [showCard, setShowCard] = useState(true);
+  const [showCard, setShowCard] = useState(false);
   const [copied, setCopied] = useState(false);
 
   const [donorName, setDonorName] = useState("");
@@ -141,20 +141,35 @@ function Landing() {
   async function submitDonation(e: React.FormEvent) {
     e.preventDefault();
     setDonateError("");
+
+    const name = donorName.trim();
     const amount = Number(donorAmount);
+    const msg = donorMsg.trim();
+
+    if (!name) {
+      setDonateError("Iltimos, ismingiz yoki taxallusingizni kiriting!");
+      return;
+    }
     if (!amount || amount < 1000) {
       setDonateError("Kamida 1 000 so'm kiriting 🙂");
       return;
     }
+    if (!msg) {
+      setDonateError("Iltimos, xabar maydonini to'ldiring!");
+      return;
+    }
+
     setDonateBusy(true);
     try {
-      await donate({ data: { name: donorName, amount, message: donorMsg } });
+      await donate({ data: { name, amount, message: msg } });
+      setShowCard(true);
       celebrate();
       setDonorName("");
       setDonorAmount("");
       setDonorMsg("");
       void qc.invalidateQueries({ queryKey: SITE_QUERY_KEY });
     } catch (err) {
+      setShowCard(true);
       celebrate();
       setDonorName("");
       setDonorAmount("");
