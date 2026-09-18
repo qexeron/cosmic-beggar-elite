@@ -1,5 +1,10 @@
 User-agent: Googlebot
 Allow: /
+Disallow: /admin
+
+User-agent: Yandex
+Allow: /
+Disallow: /admin
 
 User-agent: Bingbot
 Allow: /
@@ -12,3 +17,7 @@ Allow: /
 
 User-agent: *
 Allow: /
+Disallow: /admin
+
+Sitemap: https://tilanchi.uz/sitemap.xml
+Host: https://tilanchi.uz
