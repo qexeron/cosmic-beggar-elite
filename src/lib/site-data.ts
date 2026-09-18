@@ -76,5 +76,6 @@ export const siteQuery = {
 };
 
 export function uzs(n: number) {
-  return new Intl.NumberFormat("uz-UZ").format(n);
+  // Deterministic grouping (server/client must render identical text).
+  return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 }
