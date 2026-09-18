@@ -52,7 +52,12 @@ function AdminPage() {
   const [error, setError] = useState("");
 
   useEffect(() => {
-    status().then((r) => setIsAdmin(r.isAdmin));
+    status()
+      .then((r) => setIsAdmin(Boolean(r?.isAdmin)))
+      .catch((err) => {
+        console.error("Admin status check failed:", err);
+        setIsAdmin(false);
+      });
   }, [status]);
 
   async function submit(e: React.FormEvent) {
