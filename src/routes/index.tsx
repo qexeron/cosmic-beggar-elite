@@ -188,25 +188,29 @@ function Landing() {
   }
 
   return (
-    <div className="relative min-h-screen">
+    <div className="relative min-h-screen overflow-x-hidden">
       <ScrollProgress />
       <StarField />
       <Floaters items={data?.floaters ?? []} intervalSec={settings?.floater_interval_sec ?? 25} />
 
       {/* NAV */}
-      <header className="sticky top-0 z-50 border-b border-border/40 bg-background/70 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-          <div className="flex items-center gap-2">
-            <span className="text-2xl">👑</span>
-            <span className="font-display text-lg font-black gold-text sm:text-xl">
+      <header className="sticky top-0 z-50 border-b border-border/40 bg-background/80 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-6xl items-center justify-between px-3 py-2 sm:px-4 sm:py-3">
+          <Link to="/" className="flex items-center gap-2 transition hover:opacity-90">
+            <img
+              src="/logo.png"
+              alt="Tilanchi Dev"
+              className="h-7 sm:h-9 w-auto object-contain"
+            />
+            <span className="font-display text-base font-black gold-text sm:text-xl tracking-tight hidden xs:inline">
               Tilanchi.uz
             </span>
-          </div>
+          </Link>
           <div className="flex items-center gap-2">
-            <a href="#donat" className="btn-ghost-gold px-4 py-2 text-xs sm:text-sm">
+            <a href="#donat" className="btn-ghost-gold px-3 py-1.5 text-xs sm:px-4 sm:py-2 sm:text-sm">
               💸 Donat
             </a>
-            <Link to="/admin" className="btn-ghost-gold px-4 py-2 text-xs sm:text-sm">
+            <Link to="/admin" className="btn-ghost-gold px-3 py-1.5 text-xs sm:px-4 sm:py-2 sm:text-sm">
               🔐 Admin
             </Link>
           </div>
@@ -382,7 +386,7 @@ function Landing() {
                 className="mt-8 rounded-3xl gold-ring bg-secondary/30 p-6"
               >
                 <p className="text-xs tracking-widest text-muted-foreground">HUMO / VIP KARTA</p>
-                <p className="font-display mt-2 text-xl font-black tracking-[0.2em] gold-glow sm:text-2xl">
+                <p className="font-display mt-2 text-lg sm:text-2xl font-black tracking-wider sm:tracking-[0.2em] gold-glow select-all break-all">
                   {settings?.card_number}
                 </p>
                 <p className="mt-1 text-sm text-muted-foreground">{settings?.card_holder}</p>
