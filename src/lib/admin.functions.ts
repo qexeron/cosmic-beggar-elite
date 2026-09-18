@@ -159,7 +159,7 @@ export const createPost = createServerFn({ method: "POST" })
       media_kind: media_url ? media_kind : "none",
       sticker: trimTo(data.sticker ?? "", 30) || null,
       pinned: Boolean(data.pinned),
-      badge: trimTo(data.badge, 60) || "🔥 RASMIY E'LON",
+      badge: trimTo(data.badge ?? "", 60) || "🔥 RASMIY E'LON",
       animation,
     });
     if (error) throw new Error(error.message);
