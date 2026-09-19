@@ -1,6 +1,6 @@
 /** Cheksiz aylanadigan oltin lenta (yozuvlar tasmasi). */
 export function Marquee({ text, reverse = false }: { text: string; reverse?: boolean }) {
-  const chunk = text.trim() || "TILANCHILIK.UZ";
+  const chunk = text.trim() || "TILANCHI.UZ";
   return (
     <div className="marquee-wrap border-y border-border/40 bg-background/40 py-3 backdrop-blur-md">
       <div className={`marquee-track ${reverse ? "marquee-reverse" : ""}`}>

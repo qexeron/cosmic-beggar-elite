@@ -5,14 +5,14 @@ import { createHash, timingSafeEqual } from "node:crypto";
 type AdminSession = { isAdmin?: boolean };
 
 function sessionSecret() {
-  const secret = process.env["SESSION_SECRET"] || "tilanchilik-vip-session-secret-key-32chars";
+  const secret = process.env["SESSION_SECRET"] || "tilanchi-vip-session-secret-key-32chars";
   return secret;
 }
 
 function sessionConfig() {
   return {
     password: sessionSecret(),
-    name: "tilanchilik-admin",
+    name: "tilanchi-admin",
     maxAge: 60 * 60 * 12,
     cookie: {
       httpOnly: true,

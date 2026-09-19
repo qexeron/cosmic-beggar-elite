@@ -29,9 +29,9 @@ import {
 export const Route = createFileRoute("/admin")({
   head: () => ({
     meta: [
-      { title: "VIP Admin Panel — TILANCHILIK.UZ" },
+      { title: "VIP Admin Panel — TILANCHI.UZ" },
       { name: "description", content: "Postlar, donat statistikasi va sharhlarni boshqarish." },
-      { property: "og:title", content: "VIP Admin Panel — TILANCHILIK.UZ" },
+      { property: "og:title", content: "VIP Admin Panel — TILANCHI.UZ" },
       { property: "og:description", content: "Faqat admin uchun boshqaruv paneli." },
       { name: "robots", content: "noindex" },
     ],

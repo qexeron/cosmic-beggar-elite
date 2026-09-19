@@ -30,13 +30,13 @@ import { playCash, setSoundEnabled } from "@/lib/sound";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "TILANCHILIK.UZ — VIP Luxury Begging Experience 💎" },
+      { title: "TILANCHI.UZ — VIP Luxury Begging Experience 💎" },
       {
         name: "description",
         content:
           "Kosmik dizaynli, oltin rangli VIP tilanchilik platformasi: mem yangiliklar, donat-xona va kulgili otzivlar.",
       },
-      { property: "og:title", content: "TILANCHILIK.UZ — VIP Tilanchilik Klubi 👑" },
+      { property: "og:title", content: "TILANCHI.UZ — VIP Tilanchilik Klubi 👑" },
       {
         property: "og:description",
         content: "Koinotdagi eng lyuks donat tajribasi. Yumor, oltin va kosmos.",
@@ -207,6 +207,22 @@ function Landing() {
             </span>
           </Link>
           <div className="flex items-center gap-2">
+            <a
+              href="https://t.me/tilanchiuz"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-ghost-gold hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm"
+            >
+              <span>✈️ Telegram</span>
+            </a>
+            <a
+              href="https://instagram.com/tilanchiuz"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn-ghost-gold hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 text-xs sm:text-sm"
+            >
+              <span>📷 Instagram</span>
+            </a>
             <a href="#donat" className="btn-ghost-gold px-3 py-1.5 text-xs sm:px-4 sm:py-2 sm:text-sm">
               💸 Donat
             </a>
@@ -274,7 +290,7 @@ function Landing() {
         </div>
       </section>
 
-      <Marquee text={settings?.marquee_text ?? "TILANCHILIK.UZ • VIP KLUB"} />
+      <Marquee text={settings?.marquee_text ?? "TILANCHI.UZ • VIP KLUB"} />
 
       {/* LIVE STAT STRIP */}
       <div className="mx-auto grid max-w-5xl grid-cols-2 gap-3 px-4 py-10 sm:grid-cols-4">
@@ -449,10 +465,28 @@ function Landing() {
         </div>
       </ZoomSection>
 
-      <Marquee text={settings?.marquee_text ?? "TILANCHILIK.UZ • VIP KLUB"} reverse />
+      <Marquee text={settings?.marquee_text ?? "TILANCHI.UZ • VIP KLUB"} reverse />
 
       <footer className="relative border-t border-border/40 py-10 text-center">
-        <p className="font-display text-sm font-bold gold-text">TILANCHILIK.UZ © 2026</p>
+        <div className="mb-6 flex flex-wrap items-center justify-center gap-3">
+          <a
+            href="https://t.me/tilanchiuz"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-ghost-gold inline-flex items-center gap-2 px-4 py-2 text-xs sm:text-sm"
+          >
+            <span>✈️ Telegram: @tilanchiuz</span>
+          </a>
+          <a
+            href="https://instagram.com/tilanchiuz"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-ghost-gold inline-flex items-center gap-2 px-4 py-2 text-xs sm:text-sm"
+          >
+            <span>📷 Instagram: @tilanchiuz</span>
+          </a>
+        </div>
+        <p className="font-display text-sm font-bold gold-text">TILANCHI.UZ © 2026</p>
         <p className="mt-2 text-xs text-muted-foreground">
           Barcha huquqlar shaffof va oltin rangda himoyalangan. Yumor maqsadida yaratilgan. 😉
         </p>

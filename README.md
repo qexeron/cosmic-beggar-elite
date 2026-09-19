@@ -1,6 +1,6 @@
 # Cosmic Cashflow
 
-tilanchilik.uz sayti bu saytni dizayeni har bir varagi animatsiyali boladi kursolni pastga tortsa har bir varaq kosmosdan kelib kattalashib otib ketadi saytni har bir minutda takrorlanadigan turli hil yumor memlar yoki birorta emoji ekrani u tomondan bu tomonga random otadi kursolni pastga tortsa yangiliklar birma bir otaveradi boshiga Tilanchi bu deb yumor gaplardan chiqib turadi   eng pastda esa danatxona boladi u yerda jami danat somda danat qilayotganlarga yumor gaplardan keyin danat qilayotganda animatsiyalar boladi hamda pastda danat qilgan soxta mijozlardan yumor otvizlar yangiliklar tasmasiga yangi habarlarni kiritish uchun adminga imkoniyatlar har bir yangi xabar ham animatsiyalik chad yonida rasm yoki qoyish imkoniyati adminda boladi sayt luxery vip shaklda boladi  Tilanchilik.uz loyihasi uchun Luxery/VIP dizaynga ega, dynamic va yumorga boy landing page hamda Admin Panel strukturasini taqdim etaman. Sayt qora, oltinrang va to'q binafsha (deep space/VIP) ranglar uyg'unligida yaratiladi. postlarni statistikani sharxlarni faqat admin yozishi mumkin
+tilanchi.uz sayti bu saytni dizayeni har bir varagi animatsiyali boladi kursolni pastga tortsa har bir varaq kosmosdan kelib kattalashib otib ketadi saytni har bir minutda takrorlanadigan turli hil yumor memlar yoki birorta emoji ekrani u tomondan bu tomonga random otadi kursolni pastga tortsa yangiliklar birma bir otaveradi boshiga Tilanchi bu deb yumor gaplardan chiqib turadi   eng pastda esa danatxona boladi u yerda jami danat somda danat qilayotganlarga yumor gaplardan keyin danat qilayotganda animatsiyalar boladi hamda pastda danat qilgan soxta mijozlardan yumor otvizlar yangiliklar tasmasiga yangi habarlarni kiritish uchun adminga imkoniyatlar har bir yangi xabar ham animatsiyalik chad yonida rasm yoki qoyish imkoniyati adminda boladi sayt luxery vip shaklda boladi  Tilanchi.uz loyihasi uchun Luxery/VIP dizaynga ega, dynamic va yumorga boy landing page hamda Admin Panel strukturasini taqdim etaman. Sayt qora, oltinrang va to'q binafsha (deep space/VIP) ranglar uyg'unligida yaratiladi. postlarni statistikani sharxlarni faqat admin yozishi mumkin
 
 
 
@@ -91,7 +91,7 @@ Database: MongoDB / PostgreSQL (Postlar, sharhlar va donat statistikasini saqlas
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>TILANCHILIK.UZ — VIP Luxury Begging Experience 💎</title>
+  <title>TILANCHI.UZ — VIP Luxury Begging Experience 💎</title>
 
   <!-- Tailwind CSS & Canvas Confetti -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -172,7 +172,7 @@ Database: MongoDB / PostgreSQL (Postlar, sharhlar va donat statistikasini saqlas
       
 
 
-      TILANCHILIK.UZ
+      TILANCHI.UZ
     
 
 
@@ -523,7 +523,7 @@ Sardor Bro
         
 
 
-          "Avvallari ko'chada yurardim, endi mana tilanchilik.uz 'da soqqa qilyapman. Barchaga tavsiya qilaman!"
+          "Avvallari ko'chada yurardim, endi mana tilanchi.uz 'da soqqa qilyapman. Barchaga tavsiya qilaman!"
         
 
 
@@ -540,7 +540,7 @@ Sardor Bro
 
     
 
-TILANCHILIK.UZ © 2026
+TILANCHI.UZ © 2026
 
 
     
