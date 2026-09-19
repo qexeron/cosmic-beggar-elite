@@ -7,6 +7,25 @@ function isNewSupabaseApiKey(value: string): boolean {
   return value.startsWith('sb_publishable_') || value.startsWith('sb_secret_');
 }
 
+function sanitizeUrl(raw?: string): string {
+  const fallback = 'https://svvmoqgtygkcgjbbrteh.supabase.co';
+  if (!raw || typeof raw !== 'string') return fallback;
+  const match = raw.match(/https:\/\/[a-zA-Z0-9.-]+\.supabase\.co/);
+  if (!match) return fallback;
+  const url = match[0];
+  if (url.includes('xwrokjcdqucrropgtofm')) return fallback;
+  return url;
+}
+
+function sanitizeKey(raw?: string): string {
+  const fallback = 'sb_publishable_DS2JM0X7t8kq0V6-jrs7ig_vt8J31uk';
+  if (!raw || typeof raw !== 'string') return fallback;
+  const trimmed = raw.trim();
+  if (trimmed === 'VITE_SUPABASE_PUBLISHABLE_KEY' || trimmed === 'SUPABASE_PUBLISHABLE_KEY') return fallback;
+  if (!trimmed.startsWith('sb_') && !trimmed.startsWith('eyJ')) return fallback;
+  return trimmed;
+}
+
 function createSupabaseFetch(supabaseKey: string): typeof fetch {
   return (input, init) => {
     const headers = new Headers(
@@ -18,7 +37,7 @@ function createSupabaseFetch(supabaseKey: string): typeof fetch {
     }
 
     // New Supabase API keys are opaque strings, not bearer JWTs.
-    if (isNewSupabaseApiKey(supabaseKey) && headers.get('Authorization') === `Bearer ${supabaseKey}`) {
+    if (isNewSupabaseApiKey(supabaseKey) && headers.get('Authorization') === ) {
       headers.delete('Authorization');
     }
 
@@ -27,22 +46,12 @@ function createSupabaseFetch(supabaseKey: string): typeof fetch {
   };
 }
 
-
 function createSupabaseClient() {
-  // Use import.meta.env for client-side (Vite build-time replacement)
-  // Fall back to process.env for SSR (server-side rendering)
-  const SUPABASE_URL = import.meta.env['VITE_SUPABASE_URL'] || process.env['SUPABASE_URL'] || 'https://svvmoqgtygkcgjbbrteh.supabase.co';
-  const SUPABASE_PUBLISHABLE_KEY = import.meta.env['VITE_SUPABASE_PUBLISHABLE_KEY'] || process.env['SUPABASE_PUBLISHABLE_KEY'] || 'sb_publishable_DS2JM0X7t8kq0V6-jrs7ig_vt8J31uk';
+  const rawUrl = import.meta.env['VITE_SUPABASE_URL'] || process.env['SUPABASE_URL'];
+  const rawKey = import.meta.env['VITE_SUPABASE_PUBLISHABLE_KEY'] || process.env['SUPABASE_PUBLISHABLE_KEY'];
 
-  if (!SUPABASE_URL || !SUPABASE_PUBLISHABLE_KEY) {
-    const missing = [
-      ...(!SUPABASE_URL ? ['SUPABASE_URL'] : []),
-      ...(!SUPABASE_PUBLISHABLE_KEY ? ['SUPABASE_PUBLISHABLE_KEY'] : []),
-    ];
-    const message = `Missing Supabase environment variable(s): ${missing.join(', ')}. Connect Supabase in Lovable Cloud.`;
-    console.error(`[Supabase] ${message}`);
-    throw new Error(message);
-  }
+  const SUPABASE_URL = sanitizeUrl(rawUrl);
+  const SUPABASE_PUBLISHABLE_KEY = sanitizeKey(rawKey);
 
   return createClient<Database>(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY, {
     global: {
@@ -59,11 +68,10 @@ function createSupabaseClient() {
 let _supabase: ReturnType<typeof createSupabaseClient> | undefined;
 
 // Import the supabase client like this:
-// import { supabase } from "@/integrations/supabase/client";
+// import { supabase } from '@/integrations/supabase/client';
 export const supabase = new Proxy({} as ReturnType<typeof createSupabaseClient>, {
   get(_, prop, receiver) {
     if (!_supabase) _supabase = createSupabaseClient();
     return Reflect.get(_supabase, prop, receiver);
   },
 });
-
