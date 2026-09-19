@@ -5,6 +5,25 @@ function isNewSupabaseApiKey(value: string): boolean {
   return value.startsWith('sb_publishable_') || value.startsWith('sb_secret_');
 }
 
+function sanitizeUrl(raw?: string): string {
+  const fallback = 'https://svvmoqgtygkcgjbbrteh.supabase.co';
+  if (!raw || typeof raw !== 'string') return fallback;
+  const match = raw.match(/https:\/\/[a-zA-Z0-9.-]+\.supabase\.co/);
+  if (!match) return fallback;
+  const url = match[0];
+  if (url.includes('xwrokjcdqucrropgtofm')) return fallback;
+  return url;
+}
+
+function sanitizeKey(raw?: string): string {
+  const fallback = 'sb_publishable_DS2JM0X7t8kq0V6-jrs7ig_vt8J31uk';
+  if (!raw || typeof raw !== 'string') return fallback;
+  const trimmed = raw.trim();
+  if (trimmed.startsWith('VITE_') || trimmed.includes('SUPABASE_')) return fallback;
+  if (!trimmed.startsWith('sb_') && !trimmed.startsWith('eyJ')) return fallback;
+  return trimmed;
+}
+
 function createSupabaseFetch(supabaseKey: string): typeof fetch {
   return (input, init) => {
     const headers = new Headers(
@@ -25,18 +44,19 @@ function createSupabaseFetch(supabaseKey: string): typeof fetch {
 }
 
 function createSupabaseAdminClient() {
-  const SUPABASE_URL =
+  const rawUrl =
     process.env['SUPABASE_URL'] ||
-    process.env['VITE_SUPABASE_URL'] ||
-    'https://svvmoqgtygkcgjbbrteh.supabase.co';
-  const SUPABASE_KEY =
+    process.env['VITE_SUPABASE_URL'];
+  const rawKey =
     process.env['SUPABASE_SERVICE_ROLE_KEY'] ||
     process.env['SERVICE_ROLE_KEY'] ||
     process.env['SUPABASE_SERVICE_KEY'] ||
     process.env['SUPABASE_SECRET_KEY'] ||
     process.env['SUPABASE_PUBLISHABLE_KEY'] ||
-    process.env['VITE_SUPABASE_PUBLISHABLE_KEY'] ||
-    'sb_publishable_DS2JM0X7t8kq0V6-jrs7ig_vt8J31uk';
+    process.env['VITE_SUPABASE_PUBLISHABLE_KEY'];
+
+  const SUPABASE_URL = sanitizeUrl(rawUrl);
+  const SUPABASE_KEY = sanitizeKey(rawKey);
 
   return createClient<Database>(SUPABASE_URL, SUPABASE_KEY, {
     global: {
@@ -46,7 +66,7 @@ function createSupabaseAdminClient() {
       storage: undefined,
       persistSession: false,
       autoRefreshToken: false,
-    }
+    },
   });
 }
 
